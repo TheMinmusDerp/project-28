@@ -3,7 +3,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint; 
-debugger
+//debugger
 var ground, boi, stoneObj, TREE;
 var mANGO1, mANGO2, mANGO3, mANGO4, mANGO5;
 

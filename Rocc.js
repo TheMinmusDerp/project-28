@@ -3,7 +3,7 @@ class Rocc
     constructor(x,y,r)
     {
       var options={
-        isStatic:false,
+        isStatic:true,
         restitution:0,
         friction:1
       }
@@ -21,7 +21,7 @@ class Rocc
       translate(ballpos.x, ballpos.y);
       rectMode(CENTER);
       strokeWeight(3);
-      image(this.image, 0,this.r,this.r,this.r);
+      image(this.image, 0-this.r/2, 0-this.r/2, this.r, this.r);
       //fill(255,0,255)
       //ellipse(0,0,this.r, this.r);
       pop();
