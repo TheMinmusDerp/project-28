@@ -3,14 +3,14 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint; 
-
+debugger
 var ground, boi, stoneObj, TREE;
 var mANGO1, mANGO2, mANGO3, mANGO4, mANGO5;
 
 function preload()
 {
-	TREE = loadImage("sprites/tree.png")
-}
+	TREE = loadImage("sprites/tree.png");
+} 
 
 function setup() {
 	createCanvas(800, 700);
@@ -19,6 +19,8 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
+	//gameState = "notLaunched";
+
 	ground = new Ground(600,height,1200,20);
 	boi = new Boi(100,600);
 	stoneObj = new Rocc(100,600,50);
@@ -41,7 +43,7 @@ function draw() {
 	//console.log(mouseX);
 	//console.log(mouseY);
 
-	image(TREE, 600,0,400,700)
+	image(TREE, 400, 0, 400, 700);
 
 	detectCollision(stoneObj, mANGO1);
 	detectCollision(stoneObj, mANGO2);
@@ -73,17 +75,21 @@ function detectCollision(Lstone, Lmango) {
 	}
 }
 
-function mouseDragged() {
-	
+function mouseDragged(){
+    //if(gameState != "launched"){
+        Matter.Body.setPosition(stoneObj.body, {x: mouseX , y: mouseY});
+    //}
 }
 
 function mouseReleased() {
-	Matter.Body.applyForce(stoneObj.body, stoneObj.body.position, {x: stoneObj.body.position.x - mouseX, y: stoneObj.body.position.y - mouseY})
+	Matter.Body.applyForce(stoneObj.body, stoneObj.body.position, {x: stoneObj.body.position.x - mouseX, y: stoneObj.body.position.y - mouseY});
+	//gameState = "launched";
 }
 
 function keyPressed() {
 	if(keyCode === 32) {
 		Matter.Body.setPosition(stoneObj.body, {x:235, y:420});
-		//LAUNCHER.attach(stoneObj.body);
+		LAUNCHER.attach(stoneObj.body);
 	}
+	//gameState = "notLaunched";
 }

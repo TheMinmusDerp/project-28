@@ -1,0 +1,11 @@
+so the problem is that the Stone object is acting really frickin' weird, It's supposed to follow the mouse when the mouse is pressed, and when its released its supposed to fly off towards the target. However, when the mouse is pressed, it follows but it keeps glitching out, flying up and down stupidly fast. And when I release it, it goes down **REALLY FAST**, and glitches out and vanishes.
+
+It didn't produce a helpful error.
+> `Uncaught TypeError: Cannot read property 'touches' of undefined
+>     at _.n.default._updateTouchCoords (p5.min.js:3)
+>     at _.p5._updateNextTouchCoords (p5.play.js:265)
+>     at _.p5._onmousedown (p5.play.js:302)`
+The code is here
+https://privatebin.net/?9b3f8ee0faaacc27#DwheXChVQfNB26URHePUfXdqGiLFiCvAkCeDPj8SK933
+
+I'm using `matter.js`, `p5.js`, and `p5.play.js`

@@ -4,7 +4,7 @@ class mANGO
     {
       var options={
         isStatic:true,
-        restitution:0,
+        restitution:0.2,
         friction:1
       }
       this.x=x;
